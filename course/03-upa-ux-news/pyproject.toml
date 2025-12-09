@@ -1,0 +1,16 @@
+[project]
+name = "03-upa-ux-news"
+version = "0.1.0"
+description = "API to scrape news from UPA to UPA UX News"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.124.0",
+    "lxml>=6.0.2",
+    "requests>=2.32.5",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.8",
+]

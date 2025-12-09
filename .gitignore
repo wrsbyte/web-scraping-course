@@ -13,3 +13,4 @@ wheels/
 
 solved/*
 !solved/.gitkeep
+*.xlsx

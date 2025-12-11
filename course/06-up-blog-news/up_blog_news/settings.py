@@ -99,7 +99,7 @@ REDIS_KEY = "%(spider)s:dupefilter"
 POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
 POSTGRES_PORT = os.getenv("POSTGRES_PORT", 5432)
 POSTGRES_USER = os.getenv("POSTGRES_USER", "admin")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "kHvwunweyeHsgneySGA")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "Admin123*")
 POSTGRES_DB_NAME = os.getenv("POSTGRES_DB", "up_blog_news")
 
 USER_AGENTS_LIST = [

@@ -1,0 +1,62 @@
+networks:
+  up_blog_news:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres_data:/var/lib/postgresql/data
+    networks:
+      - up_blog_news
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis_data:/data
+    networks:
+      - up_blog_news
+
+  scrapyd:
+    build: .
+    container_name: scrapyd
+    restart: unless-stopped
+    ports:
+      - "6800:6800"
+    env_file:
+      - .env
+    volumes:
+      - ./data/scrapyd_data:/var/lib/scrapyd
+    networks:
+      - up_blog_news
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: unless-stopped
+    ports:
+      - "5051:80"
+    env_file:
+      - .env
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - up_blog_news
+
+volumes:
+  postgres_data:
+  redis_data:
+  scrapyd_data:
+  pgadmin_data:

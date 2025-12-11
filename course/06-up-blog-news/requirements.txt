@@ -1,0 +1,5 @@
+markdownify
+openpyxl
+psycopg2-binary
+scrapy_redis
+pandas
